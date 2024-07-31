@@ -1,0 +1,128 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+.file-input {
+    display: block;
+    margin: 10px auto;
+}
+
+.submit-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.file-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.file-list li {
+    margin-bottom: 10px;
+}
+
+.file-list li i {
+    margin-right: 10px;
+    font-size: 20px; /* Adjust the icon size */
+}
+
+.file-list li .pdf {
+    color: red; /* Red color for PDF files */
+}
+
+.file-list li .docx {
+    color: blue; /* Blue color for DOCX files */
+}
+
+.file-list li .xlsx {
+    color: green; /* Green color for XLSX files */
+}
+
+.file-list li .pptx {
+    color: orange; /* Orange color for PPTX files */
+}
+
+.file-list li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.file-list li a:hover {
+    color: #0066cc;
+}
+
+
+/* Add these classes to your existing styles.css */
+
+.file-list li .image {
+    color: purple; /* Purple color for image files */
+}
+
+.file-list li .video {
+    color: teal; /* Teal color for video files */
+}
+
+
+/* Add this CSS to your existing styles.css */
+
+/* Add this CSS to your existing styles.css */
+
+.file-list li {
+    margin-bottom: 10px;
+    position: relative; /* Make the list item position relative */
+}
+
+.delete-btn {
+    position: absolute; /* Position the delete button */
+    top: 50%; /* Align vertically to the middle */
+    right: 0; /* Position to the right */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+    color: #000000;
+    background-color: #3580dc; /* Red color for delete button */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #fff; /* Darker red color on hover */
+}

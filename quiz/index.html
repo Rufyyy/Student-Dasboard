@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Create Quiz</title>
+</head>
+<body>
+    <!---<h1>Create Quiz</h1>--->
+    <div class="container">
+        <div class="form-group">
+            <label for="googleFormLink">Google Form Link:</label>
+            <input type="text" id="googleFormLink" placeholder="Paste the Google Form link here">
+        </div>
+        <div class="form-group">
+            <button onclick="createQuiz()">Submit Quiz</button>
+        </div>
+    </div>
+
+    <script>
+        function createQuiz() {
+            var googleFormLink = document.getElementById("googleFormLink").value;
+            // Store the link in local storage
+            localStorage.setItem("quizLink", googleFormLink);
+            // Redirect to the page where students can access the quiz
+            window.location.href = "submit.html";
+        }
+    </script>
+</body>
+</html>

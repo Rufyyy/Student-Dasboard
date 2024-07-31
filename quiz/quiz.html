@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Quiz</title>
+    <style>
+        .container {
+    text-align: center; /* Center aligns all content inside the container */
+    margin-top: 50px; /* Adjust as needed */
+}
+
+h1 {
+    color: #333;
+    font-size: 24px; /* Example font size */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px; /* Example font size */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <div class = "container">
+    <h1>Click the button below to access the quiz:</h1>
+    <button onclick="takeQuiz()">Take Quiz</button>
+    </div>
+    <script>
+        function takeQuiz() {
+            // Retrieve the quiz link from local storage
+            var quizLink = localStorage.getItem("quizLink");
+            // Open the Google Form link in a new tab
+            window.open(quizLink, "_blank");
+        }
+    </script>
+</body>
+</html>
