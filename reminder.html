@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Reminder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Reminder</h1>
+        <form id="taskForm">
+            <label for="title">Title:</label>
+            <input type="text" id="title" required>
+            <label for="description">Description:</label>
+            <input type="text" id="description" required>
+            <label for="date">Date:</label>
+            <input type="date" id="date" required>
+            <label for="time">Time:</label>
+            <input type="time" id="time" required>
+            <button style="width:100%" type="button" onclick="scheduleReminder();">
+                Schedule Reminder
+            </button>
+        </form>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Date & Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="reminderTableBody"></tbody>
+        </table>
+        <div id="notificationBox" class="notification"></div>
+    </div>
+    <audio src="notification_sound.mp3" id="notificationSound"></audio>
+    <script>
+        var timeoutIds = [];
+
+        function scheduleReminder() {
+            var title = document.getElementById("title").value;
+            var description = document.getElementById("description").value;
+            var date = document.getElementById("date").value;
+            var time = document.getElementById("time").value;
+            var dateTimeString = date + " " + time;
+            var scheduledTime = new Date(dateTimeString);
+            var currentTime = new Date();
+            var timeDifference = scheduledTime - currentTime;
+
+            if (timeDifference > 0) {
+                addReminder(title, description, dateTimeString, timeDifference);
+
+                var timeoutId = setTimeout(function () {
+                    showNotification(title, description);
+                }, timeDifference);
+                timeoutIds.push(timeoutId);
+            } else {
+                alert("The scheduled time is in the past!");
+            }
+        }
+
+        function addReminder(title, description, dateTimeString, timeDifference) {
+            var tableBody = document.getElementById("reminderTableBody");
+            var row = tableBody.insertRow();
+            var titleCell = row.insertCell(0);
+            var descriptionCell = row.insertCell(1);
+            var dateTimeCell = row.insertCell(2);
+            var actionCell = row.insertCell(3);
+
+            titleCell.textContent = title;
+            descriptionCell.textContent = description;
+            dateTimeCell.textContent = dateTimeString;
+            actionCell.innerHTML = '<button onclick="deleteReminder(this);">Delete</button>';
+        }
+
+        function deleteReminder(button) {
+            var row = button.closest("tr");
+            var index = Array.from(row.parentNode.children).indexOf(row);
+
+            clearTimeout(timeoutIds[index]);
+            timeoutIds.splice(index, 1);
+
+            row.remove();
+        }
+
+        function showNotification(title, description) {
+            var notificationSound = document.getElementById("notificationSound");
+            notificationSound.play();
+            alert(title + "\n" + description);
+        }
+    </script>
+   
+
+
+</body>
+</html>

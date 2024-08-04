@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus</title>
+    <!-- Add any additional CSS styles here -->
+    <style>
+        /* Example CSS styles for formatting */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #007bff; /* Blue background color */
+            color: #fff; /* White text color */
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff; /* White background color for the container */
+            color:black;
+            padding: 20px; /* Add some padding for better appearance */
+            border-radius: 10px; /* Rounded corners for the container */
+        }
+        h1 {
+            color: #007bff; /* Blue color for the heading */
+        }
+        h2 {
+            cursor: pointer;
+        }
+        .pdf-container {
+            display: none;
+            padding: 10px; /* Add some padding for better appearance */
+        }
+        .pdf-container.embed {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #007bff; /* Blue border */
+        }
+        .download-link {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .download-link a {
+            color: #007bff; /* Blue color for the download link */
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Syllabi</h1>
+        <form>
+            <h2 onclick="togglePDF('ug2015')">Undergraduate 2015-2016</h2>
+            <div id="ug2015" class="pdf-container">
+                <embed src="UG_SYLLABUS_2015.pdf" type="application/pdf" class="embed" />
+                <div class="download-link"><a href="UG_SYLLABUS_2015.pdf" download>Download PDF</a></div>
+            </div>
+
+            <h2 onclick="togglePDF('ug2016')">Undergraduate 2016-2017</h2>
+            <div id="ug2016" class="pdf-container">
+                <embed src="UG_SYLLABUS_2016.pdf" type="application/pdf" class="embed" />
+                <div class="download-link"><a href="UG_SYLLABUS_2016.pdf" download>Download PDF</a></div>
+            </div>
+
+            <h2 onclick="togglePDF('ug2019')">Undergraduate 2019-2020</h2>
+            <div id="ug2019" class="pdf-container">
+                <embed src="UG_SYLLABUS_2019.pdf" type="application/pdf" class="embed" />
+                <div class="download-link"><a href="UG_SYLLABUS_2019.pdf" download>Download PDF</a></div>
+            </div>
+
+            <h2 onclick="togglePDF('pg2015')">Postgraduate 2015-2016</h2>
+            <div id="pg2015" class="pdf-container">
+                <embed src="PG_SYLLABUS_2015.pdf" type="application/pdf" class="embed" />
+                <div class="download-link"><a href="PG_SYLLABUS_2015.pdf" download>Download PDF</a></div>
+            </div>
+
+            <h2 onclick="togglePDF('pg2019')">Postgraduate 2019-2020</h2>
+            <div id="pg2019" class="pdf-container">
+                <embed src="PG_SYLLABUS_2019.pdf" type="application/pdf" class="embed" />
+                <div class="download-link"><a href="PG_SYLLABUS_2019.pdf" download>Download PDF</a></div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Add JavaScript for toggling PDF containers -->
+    <script>
+        function togglePDF(id) {
+            var pdfContainer = document.getElementById(id);
+            if (pdfContainer.style.display === "none") {
+                pdfContainer.style.display = "block";
+            } else {
+                pdfContainer.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
