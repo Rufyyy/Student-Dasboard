@@ -1,0 +1,71 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .image {
+    width: 400px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 80px;
+    margin-left: 50px;
+    margin-right: 50px; /* Spacing between image and paragraph */
+    transition: transform 0.3s ease; /* Transition effect for animation */
+    float: left; /* Align the image to the left */
+    position: relative; /* Ensure the image respects z-index */
+    z-index: 1; /* Set the stacking order of the image */
+  }
+  
+  .image:hover {
+    transform: scale(1.1); /* Increase the size by 10% on hover */
+  }
+  
+  .paragraph {
+    margin: 0;
+    font-size: larger;
+    text-decoration: blink; /* Add underline decoration */
+    font-weight: 300; /* Make text bold */
+    font-style:normal; /* Make text italic */
+  }
+  
+  
+  .button {
+    margin-top: auto;
+    margin-right: 200px;
+    padding: 10px 20px;
+    background-color: #f2ff00; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition effect on hover */
+    position: relative; /* Ensure the button respects z-index */
+    z-index: 2; /* Set the stacking order of the button (above the image) */
+  }
+  
+  .button-link {
+    text-decoration: none;
+  }
+  
+  .button:hover {
+    background-color: #b3a400; /* Darker background color on hover */
+  }
+  
+  /* Optional: Add animation */
+  @keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .button.animated {
+    animation: bounce 0.5s infinite;
+  }
+  
